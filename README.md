@@ -21,12 +21,22 @@ CREATE TABLE `courier` (
 )
 ```
 
+![部署](deploy.png)
 
-# 三、运行截图
+
+# 三、测试截图
 
 运行CourierDaoTest测试时，先addTest时记得改其中的```Courier courier = (Courier)context.getBean("courier01");```
 
+![测试](courierTest.png)
 
+![测试](addTest.png)
+
+![测试](delTest.png)
+
+![测试](updateTest.png)
+
+![测试](listTest.png)
 
 # 四、总结
 
