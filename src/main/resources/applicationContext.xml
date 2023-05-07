@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean name="courier01" class="com.just.pojo.Courier">
+        <property name="id" value="1"/>
+        <property name="deliverCompany" value="中通"/>
+        <property name="status" value="包裹正在揽收"/>
+    </bean>
+
+    <bean name="courier02" class="com.just.pojo.Courier">
+        <property name="id" value="2"/>
+        <property name="deliverCompany" value="申通"/>
+        <property name="status" value="请到49栋车库领取快递"/>
+    </bean>
+
+    <bean name="courier03" class="com.just.pojo.Courier">
+        <property name="id" value="3"/>
+        <property name="deliverCompany" value="韵达"/>
+        <property name="status" value="包裹已抵达上海，预计明天送达"/>
+    </bean>
+
+
+    <!--配置DataSource-->
+    <bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="url"
+                  value="jdbc:mysql://localhost:3306/spring?characterEncoding=utf8&amp;serverTimezone=UTC%2B8"/>
+        <property name="username" value="root"/>
+        <property name="password" value="123zxcvbnm"/>
+    </bean>
+    <!--配置JdbcTemplate-->
+    <bean name="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+
+    <bean name="courierDao" class="com.just.dao.impl.CourierDaoImpl">
+        <property name="jdbcTemplate" ref="jdbcTemplate"/>
+    </bean>
+
+
+</beans>
